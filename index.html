@@ -63,19 +63,24 @@ body {
 }
 
 /* Boss overlay */
-#bossOverlay{
+#bossOverlay {
   position: fixed;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  font-size: 2rem;
-  font-weight:bold;
-  color:#ffe5b4;
-  text-shadow: 0 0 15px #ffd700;
-  opacity:0;
-  pointer-events:none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Pacifico', cursive;       /* playful, luxe script */
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #ffe5b4;                         /* soft peachy color */
+  text-shadow: 0 0 15px #ffd700;         /* golden glow */
+  opacity: 0;
+  pointer-events: none;
   z-index: 20;
-  text-align:center;
+  text-align: center;
+  line-height: 1.2;                       /* nice spacing for 2 lines */
+  max-width: 80vw;                         /* wraps nicely on mobile */
+  word-break: break-word;
+  white-space: pre-line;                  /* preserves line breaks */
 }
 
 /* Message */
@@ -306,9 +311,13 @@ function createConfetti(){
 
 /* ---------- GENERATOR ---------- */
 function generateHype(){
-  const overlay=document.getElementById("bossOverlay");
-  overlay.style.opacity=1;
-  createConfetti();
+  const bossOverlay = document.getElementById("bossOverlay");
+
+  // 1️⃣ Set the overlay text with 2 lines
+  bossOverlay.textContent = `✨ Boss Bitch Energy\nActivated ✨`;
+
+  // 2️⃣ Show overlay
+  bossOverlay.style.opacity = 1;
 
   // delay everything else until overlay fades
   setTimeout(()=>{
